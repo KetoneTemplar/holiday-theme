@@ -1,0 +1,53 @@
+/* christmas.css */
+
+/* General background and font */
+body, .page, .scheduler {
+  background-color: #b30000 !important; /* festive red */
+  font-family: "Comic Sans MS", cursive, sans-serif !important;
+  color: #ffffff !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styling */
+.header, .conf-scheduler-header, .page-header {
+  background-color: #006400 !important; /* deep green */
+  text-align: center !important;
+  padding: 20px !important;
+  font-size: 2em !important;
+  font-weight: bold !important;
+  border-bottom: 5px solid #ffffff !important;
+}
+
+/* Buttons */
+.button, .conf-scheduler-button, .btn {
+  background-color: #006400 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  padding: 10px 20px !important;
+  margin: 10px !important;
+  font-size: 1em !important;
+  border-radius: 8px !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.button:hover, .conf-scheduler-button:hover, .btn:hover {
+  background-color: #ff0000 !important; /* red hover */
+  cursor: pointer !important;
+}
+
+/* Calendar grid */
+.calendar, .conf-scheduler-calendar, .calendar-grid {
+  background-color: #006400 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Footer */
+.footer, .conf-scheduler-footer, .page-footer {
+  background-color: #006400 !important;
+  text-align: center !important;
+  padding: 10px !important;
+  font-size: 0.9em !important;
+  border-top: 5px solid #ffffff !important;
+}
