@@ -1,0 +1,271 @@
+/* ==========================================================
+   Christmas Theme CSS (Crestron Scheduler / Embedded WebView Safe)
+   Constraints applied:
+   - NO flexbox / grid
+   - NO :nth-child, :not, attribute selectors
+   - NO pseudo-elements (::before/::after)
+   - NO animations / transitions / keyframes
+   - NO CSS variables
+   - NO media queries
+   - Avoid :hover reliance (touch panel)
+   - Prefer fixed sizes + absolute positioning helpers
+   - System fonts only
+   ========================================================== */
+
+/* ---------- Global ---------- */
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: #0b2a1a;     /* deep evergreen */
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+/* Links (keep simple; touch panels won't hover) */
+a {
+  color: #ffd966;               /* gold */
+  text-decoration: none;
+}
+a:active {
+  text-decoration: underline;
+}
+
+/* ---------- Fixed layout helpers ---------- */
+/* Use these as building blocks if you control the HTML */
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;   /* set to your panel's pixel size */
+  height: 480px;  /* set to your panel's pixel size */
+}
+
+/* A simple container */
+.container {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  width: 760px;   /* example fixed width */
+}
+
+/* ---------- Header ---------- */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;         /* match panel width */
+  height: 50px;
+
+  background-color: #0f3a25;
+  border-bottom: 3px solid #c1121f; /* red stripe */
+}
+
+.title {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* ---------- Simple “Lights” strip ----------
+   Place a <div class="lights"></div> under header if allowed
+   Using only background-color + repeating linear gradient
+*/
+.lights {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 800px;
+  height: 10px;
+
+  background-color: #0b2a1a;
+  background-image: repeating-linear-gradient(
+    to right,
+    #c1121f 0px,   #c1121f 18px,
+    #ffffff 18px,  #ffffff 36px,
+    #2ecc71 36px,  #2ecc71 54px,
+    #ffd966 54px,  #ffd966 72px
+  );
+}
+
+/* ---------- Card / Panel Blocks ---------- */
+.card {
+  background-color: #123b26;
+  border: 1px solid #1c5a39;
+  border-radius: 10px;
+  padding: 14px;
+  color: #ffffff;
+}
+
+/* ---------- Buttons ----------
+   Supports: button element OR .btn class OR inputs
+*/
+button {
+  background-color: #c1121f;
+  color: #ffffff;
+  border: 1px solid #8d0f17;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+/* Some scheduler UIs use <input type="button"> or <input type="submit"> */
+.btn {
+  background-color: #c1121f;
+  color: #ffffff;
+  border: 1px solid #8d0f17;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Active press state (touch-friendly) */
+button:active {
+  background-color: #a10e19;
+}
+.btn:active {
+  background-color: #a10e19;
+}
+
+/* Secondary button (apply class manually) */
+.btnSecondary {
+  background-color: #ffffff;
+  color: #0b2a1a;
+  border: 1px solid #d9d9d9;
+}
+.btnSecondary:active {
+  background-color: #f0f0f0;
+}
+
+/* ---------- Form fields (simple) ---------- */
+.field {
+  background-color: #0f3a25;
+  color: #ffffff;
+  border: 1px solid #1c5a39;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+/* If your HTML uses plain input boxes, add class="field" */
+textarea {
+  background-color: #0f3a25;
+  color: #ffffff;
+  border: 1px solid #1c5a39;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+/* ---------- Tables (common in scheduling lists) ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #0f3a25;
+  border: 1px solid #1c5a39;
+}
+
+th {
+  text-align: left;
+  background-color: #123b26;
+  color: #ffd966;
+  padding: 10px;
+  border-bottom: 1px solid #1c5a39;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #1c5a39;
+  color: #ffffff;
+}
+
+/* If alternating row color is desired, do it by adding classes in HTML:
+   <tr class="rowAlt"> ... */
+.rowAlt td {
+  background-color: #0d3321;
+}
+
+/* ---------- Status / Badges (apply classes in HTML) ---------- */
+.statusAvailable {
+  color: #7cffb2;
+  font-weight: bold;
+}
+
+.statusBusy {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid #1c5a39;
+  background-color: #123b26;
+  color: #ffffff;
+}
+
+.badgeAvailable {
+  background-color: #1b6b43;
+  border: 1px solid #2a8a5a;
+}
+
+.badgeBusy {
+  background-color: #8d0f17;
+  border: 1px solid #c1121f;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 800px;      /* match panel width */
+  height: 40px;
+
+  padding: 10px 16px;
+  background-color: #0f3a25;
+  border-top: 1px solid #1c5a39;
+
+  color: #cfe9dd;
+  font-size: 14px;
+}
+
+/* ---------- Optional background “snow” (static) ----------
+   Keep it off by default; enable only if performance allows.
+   Usage: add class "snowOn" to body (or a full-screen div).
+*/
+.snowOn {
+  background-color: #0b2a1a;
+  /* simple crosshatch “snow” pattern; no pseudo elements */
+  background-image:
+    repeating-linear-gradient(135deg, #ffffff 0px, #ffffff 1px, transparent 1px, transparent 32px),
+    repeating-linear-gradient(45deg,  #ffffff 0px, #ffffff 1px, transparent 1px, transparent 40px);
+}
+
+/* ---------- Notes ----------
+   1) If you cannot change HTML, you’ll need to target the specific IDs/classes
+      that Crestron exposes (often limited).
+   2) If you CAN change HTML, prefer adding these classes rather than using
+      unsupported selectors.
+   3) Update fixed widths/heights (800x480 shown) to match your panel.
+----------------------------------------------- */
