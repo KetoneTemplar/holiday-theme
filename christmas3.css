@@ -1,0 +1,229 @@
+/* ==========================================================
+   Christmas Theme CSS for Crestron Scheduling Panels
+   - Uses simple selectors that tend to be safe for embedded WebViews
+   - Avoids advanced features (filters, complex animations, heavy gradients)
+   - You can paste this into a single .css file and load it with your panel page
+   ========================================================== */
+
+/* ---------- Basic resets / safety ---------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b2a1a;        /* deep evergreen */
+  color: #ffffff;
+}
+
+/* Links */
+a, a:visited {
+  color: #ffd966;            /* warm gold */
+  text-decoration: none;
+}
+a:active, a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Layout helpers (optional) ---------- */
+.container {
+  padding: 16px;
+}
+
+/* Card / panel surface */
+.card {
+  background: #123b26;       /* evergreen surface */
+  border: 1px solid #1c5a39;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+/* ---------- Header / Title area ---------- */
+.header {
+  background: #0f3a25;
+  border-bottom: 3px solid #c1121f; /* Christmas red */
+  padding: 14px 16px;
+}
+
+.header .title {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+/* A simple “candy cane” divider you can place anywhere */
+.divider {
+  height: 6px;
+  background: #c1121f;
+}
+.divider.alt {
+  background: #ffffff;
+}
+
+/* ---------- Buttons ---------- */
+button,
+.btn,
+input[type="button"],
+input[type="submit"] {
+  background: #c1121f;     /* red */
+  color: #ffffff;
+  border: 1px solid #8d0f17;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button:active,
+.btn:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+  background: #a10e19;
+}
+
+/* Secondary button */
+.btn-secondary,
+input[type="reset"] {
+  background: #ffffff;
+  color: #0b2a1a;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary:active,
+input[type="reset"]:active {
+  background: #f0f0f0;
+}
+
+/* ---------- Form fields ---------- */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+  background: #0f3a25;
+  color: #ffffff;
+  border: 1px solid #1c5a39;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ffd966; /* gold highlight */
+}
+
+/* ---------- Tables / Lists (common in scheduling UIs) ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #0f3a25;
+  border: 1px solid #1c5a39;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #1c5a39;
+}
+
+th {
+  text-align: left;
+  background: #123b26;
+  color: #ffd966; /* gold headers */
+}
+
+/* Alternate row shading */
+tr:nth-child(even) td {
+  background: #0d3321;
+}
+
+/* ---------- Status colors (room states, availability, etc.) ---------- */
+.status-available {
+  color: #7CFFB2; /* minty green */
+  font-weight: bold;
+}
+
+.status-busy {
+  color: #ff6b6b; /* soft red */
+  font-weight: bold;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid transparent;
+}
+
+.badge-available {
+  background: #1b6b43;
+  border-color: #2a8a5a;
+  color: #ffffff;
+}
+
+.badge-busy {
+  background: #8d0f17;
+  border-color: #c1121f;
+  color: #ffffff;
+}
+
+/* ---------- “Holiday lights” strip (simple, low-cost) ---------- */
+/* Place a <div class="lights"></div> at the top of your page */
+.lights {
+  height: 10px;
+  background: #0b2a1a;
+  border-bottom: 1px solid #1c5a39;
+  /* light “bulbs” as repeating blocks (no gradients, no shadows) */
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      #c1121f 0px,   #c1121f 18px,
+      #ffffff 18px,  #ffffff 36px,
+      #2ecc71 36px,  #2ecc71 54px,
+      #ffd966 54px,  #ffd966 72px
+    );
+}
+
+/* ---------- Subtle snow effect (static dots; safe for panels) ---------- */
+/* Put <div class="snow"></div> as a background layer if your HTML allows it */
+.snow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* simple “snow dots” using repeated radial gradients can be heavy;
+     so we use a lightweight image-less pattern via repeating linear gradients */
+  opacity: 0.12;
+  background-image:
+    repeating-linear-gradient(135deg, #ffffff 0px, #ffffff 1px, transparent 1px, transparent 28px),
+    repeating-linear-gradient(45deg,  #ffffff 0px, #ffffff 1px, transparent 1px, transparent 36px);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 12px 16px;
+  border-top: 1px solid #1c5a39;
+  background: #0f3a25;
+  color: #cfe9dd;
+  font-size: 14px;
+}
+
+/* ---------- Utility text colors ---------- */
+.text-gold { color: #ffd966; }
+.text-red  { color: #ff6b6b; }
+.text-mint { color: #7CFFB2; }
+
+/* ---------- Crestron-friendly notes ----------
+   If your scheduling panel page uses specific IDs/classes,
+   you can map them to these styles, e.g.:
+     #header { }  -> add class="header"
+     .roomName { } -> add class="title"
+   Keep selectors simple for best compatibility.
+--------------------------------------------- */
